@@ -10,12 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("employees")
 public class EmployeeController {
-
     private final EmployeeService employeeService;
-
     @Autowired
     private ModelMapper mapper;
-
     @Autowired
     EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
@@ -25,7 +22,5 @@ public class EmployeeController {
     public @ResponseBody EmployeeDTO createEmployee(@RequestBody EmployeeDTO employeeDTO) {
         Employee employee = mapper.map(employeeDTO, Employee.class);
         return mapper.map(employeeService.createEmployee(employee), EmployeeDTO.class);
-
     }
-
 }

@@ -13,7 +13,6 @@ public class Employee extends Resource{
     private Date dob;
     private String designation;
 
-
     public String getAddress() {
         return address;
     }
