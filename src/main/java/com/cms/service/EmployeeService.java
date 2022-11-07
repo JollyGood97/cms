@@ -21,7 +21,6 @@ public class EmployeeService {
     EmployeeService(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
-
     public Employee createEmployee(@NonNull final Employee employee) {
         return employeeRepository.save(employee);
     }

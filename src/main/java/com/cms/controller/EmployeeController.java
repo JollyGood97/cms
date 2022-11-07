@@ -15,12 +15,9 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("employees")
 public class EmployeeController {
-
     private final EmployeeService employeeService;
-
     @Autowired
     private ModelMapper mapper;
-
     @Autowired
     EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
@@ -98,5 +95,4 @@ public class EmployeeController {
                 mapper.map(employee, EmployeeDTO.class)
         ).collect(Collectors.toList());
     }
-
 }
