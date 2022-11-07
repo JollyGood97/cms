@@ -39,4 +39,20 @@ public class EmployeeController {
         ).collect(Collectors.toList());
     }
 
+    @GetMapping("/{employeeId}")
+    public @ResponseBody EmployeeDTO getEmployeeById(@PathVariable String employeeId){
+        return mapper.map(employeeService.getEmployeeById(employeeId), EmployeeDTO.class);
+    }
+
+    @PutMapping("/{employeeId}")
+    public @ResponseBody EmployeeDTO updateEmployee(@RequestBody EmployeeDTO employeeDTO, @PathVariable String employeeId) {
+        Employee employee = mapper.map(employeeDTO, Employee.class);
+        return mapper.map(employeeService.updateEmployee(employeeId, employee), EmployeeDTO.class);
+
+    }
+
+    @DeleteMapping("/{employeeId}")
+    public void deleteEmployee(@PathVariable String employeeId){
+        employeeService.deleteEmployee(employeeId);
+    }
 }
