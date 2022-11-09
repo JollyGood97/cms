@@ -1,13 +1,10 @@
 package com.cms.dto;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode(callSuper=true)
 public class MachinerySupplierDTO extends VendorDTO{
     private String machinerySupplierId;
-
-    public String getMachinerySupplierId() {
-        return machinerySupplierId;
-    }
-
-    public void setMachinerySupplierId(String machinerySupplierId) {
-        this.machinerySupplierId = machinerySupplierId;
-    }
 }

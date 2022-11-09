@@ -1,13 +1,11 @@
 package com.cms.dto;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+@Data
+@EqualsAndHashCode(callSuper=true)
 public class EngineeringCorpDTO extends VendorDTO{
     private String engCorpId;
 
-    public String getEngCorpId() {
-        return engCorpId;
-    }
-
-    public void setEngCorpId(String engCorpId) {
-        this.engCorpId = engCorpId;
-    }
 }
