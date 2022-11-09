@@ -1,7 +1,5 @@
 package com.cms.dto;
 
-import com.cms.enums.ResourceType;
-
 import java.util.Date;
 
 
@@ -9,7 +7,7 @@ public class EmployeeDTO extends ResourceDTO{
     private String address;
     private Date dob;
     private String designation;
-
+    private String empId;
     public EmployeeDTO() {
     }
 
@@ -35,5 +33,13 @@ public class EmployeeDTO extends ResourceDTO{
 
     public void setDesignation(String designation) {
         this.designation = designation;
+    }
+
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
     }
 }

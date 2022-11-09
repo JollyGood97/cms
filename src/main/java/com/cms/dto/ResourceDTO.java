@@ -2,7 +2,6 @@ package com.cms.dto;
 
 import com.cms.enums.ResourceType;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 public class ResourceDTO {

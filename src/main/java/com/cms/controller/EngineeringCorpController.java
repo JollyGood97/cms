@@ -1,0 +1,46 @@
+package com.cms.controller;
+
+import com.cms.dto.EmployeeDTO;
+import com.cms.dto.EngineeringCorpDTO;
+import com.cms.entity.Employee;
+import com.cms.entity.EngineeringCorp;
+import com.cms.service.EngineeringCorpService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@RestController
+@RequestMapping("engineering-corps")
+public class EngineeringCorpController {
+    private final EngineeringCorpService engineeringCorpService;
+
+    @Autowired
+    private ModelMapper mapper;
+
+    @Autowired
+    EngineeringCorpController(EngineeringCorpService engineeringCorpService){
+        this.engineeringCorpService = engineeringCorpService;
+    }
+
+    @PostMapping
+    public @ResponseBody EngineeringCorpDTO createEngCorp(@RequestBody EngineeringCorpDTO engineeringCorpDTO) {
+        EngineeringCorp engineeringCorp = mapper.map(engineeringCorpDTO, EngineeringCorp.class);
+        return mapper.map(engineeringCorpService.createEngCorp(engineeringCorp), EngineeringCorpDTO.class);
+    }
+
+    @GetMapping
+    public @ResponseBody List<EngineeringCorpDTO> getAllEngCorps(){
+        List<EngineeringCorp> engCorps = engineeringCorpService.getEngCorps();
+        return engCorps.stream().map(corp ->
+                mapper.map(corp, EngineeringCorpDTO.class)
+        ).collect(Collectors.toList());
+    }
+
+    @DeleteMapping("/{corpId}")
+    public void deleteCorp(@PathVariable String corpId){
+        engineeringCorpService.deleteCorp(corpId);
+    }
+}

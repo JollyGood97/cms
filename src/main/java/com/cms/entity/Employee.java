@@ -1,17 +1,16 @@
 package com.cms.entity;
 
-import com.cms.enums.ResourceType;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Data
-@Document(collection = "employee")
+@Document(collection = "employees")
 public class Employee extends Resource{
     private String address;
     private Date dob;
     private String designation;
+    private String empId;
 
     public String getAddress() {
         return address;
@@ -37,4 +36,11 @@ public class Employee extends Resource{
         this.designation = designation;
     }
 
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
+    }
 }

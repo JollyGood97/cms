@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EmployeeRepository extends MongoRepository<Employee, String> {
-    @Override
-    List<Employee> findAll();
     Optional<Employee> findById(final String id);
+    List<Employee> findEmployeesByCompanyId(final String compId);
 }

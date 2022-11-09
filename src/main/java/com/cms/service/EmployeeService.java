@@ -53,4 +53,8 @@ public class EmployeeService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee Not Found for ID: " + id);
         }
     }
+
+    public List<Employee> getEmployeesByCompany(String compId){
+        return employeeRepository.findEmployeesByCompanyId(compId);
+    }
 }

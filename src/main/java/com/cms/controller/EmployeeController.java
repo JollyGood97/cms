@@ -28,7 +28,6 @@ public class EmployeeController {
     public @ResponseBody EmployeeDTO createEmployee(@RequestBody EmployeeDTO employeeDTO) {
         Employee employee = mapper.map(employeeDTO, Employee.class);
         return mapper.map(employeeService.createEmployee(employee), EmployeeDTO.class);
-
     }
 
     @GetMapping
@@ -55,4 +54,13 @@ public class EmployeeController {
     public void deleteEmployee(@PathVariable String employeeId){
         employeeService.deleteEmployee(employeeId);
     }
+
+    @GetMapping("/corps/{corpId}")
+    public @ResponseBody List<EmployeeDTO> getEmployeesByCompany(@PathVariable String corpId){
+        List<Employee> employees = employeeService.getEmployeesByCompany(corpId);
+        return employees.stream().map(employee ->
+                mapper.map(employee, EmployeeDTO.class)
+        ).collect(Collectors.toList());
+    }
+
 }
