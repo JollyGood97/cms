@@ -1,5 +1,6 @@
 package com.cms.dto;
 
+import com.cms.enums.SiteRequestType;
 import lombok.Data;
 
 import java.util.Date;
@@ -11,4 +12,5 @@ public class SiteRequestDTO {
     private String description;
     private Date date;
     private boolean complete = false;
+    private SiteRequestType siteRequestType;
 }

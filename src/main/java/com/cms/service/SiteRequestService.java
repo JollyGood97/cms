@@ -16,15 +16,15 @@ public class SiteRequestService {
     private final SiteRequestRepository siteRequestRepository;
 
     @Autowired
-    SiteRequestService(SiteRequestRepository siteRequestRepository){
+    SiteRequestService(SiteRequestRepository siteRequestRepository) {
         this.siteRequestRepository = siteRequestRepository;
     }
 
-    public SiteRequest createSiteRequest(@NonNull final SiteRequest siteRequest){
+    public SiteRequest createSiteRequest(@NonNull final SiteRequest siteRequest) {
         return siteRequestRepository.save(siteRequest);
     }
 
-    public List<SiteRequest> getAllSiteRequests(){
+    public List<SiteRequest> getAllSiteRequests() {
         return siteRequestRepository.findAll();
     }
 
@@ -34,10 +34,14 @@ public class SiteRequestService {
         ));
     }
 
-    public void markComplete(@NonNull String id){
+    public void markCompleteOrUndo(@NonNull String id, boolean isComplete) {
         SiteRequest siteRequest = getSiteReqById(id);
         Request siteReq = new SiteRequestAction(siteRequest);
-        new RequestAction(siteReq).action();
+        if (isComplete) {
+            new RequestAction(siteReq).action();
+        } else {
+            new RequestAction(siteReq).reject();
+        }
         siteRequestRepository.save(siteRequest);
     }
 }

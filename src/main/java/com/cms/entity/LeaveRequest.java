@@ -7,14 +7,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(collection = "site-requests")
+@Document(collection = "leave-requests")
 @Data
-public class SiteRequest{
+public class LeaveRequest {
     @Id
     private String id;
-    private String siteId;
+    private String employeeId;
     private String description;
     private Date date;
-    private boolean complete = false;
-    private SiteRequestType siteRequestType;
+    private boolean approved = false;
 }

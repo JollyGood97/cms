@@ -41,8 +41,8 @@ public class SiteRequestController {
         ).collect(Collectors.toList());
     }
 
-    @PutMapping("/{siteReqId}")
-    public void markComplete(@PathVariable String siteReqId) {
-        siteRequestService.markComplete(siteReqId);
+    @PutMapping("/{siteReqId}/{isComplete}")
+    public void markComplete(@PathVariable String siteReqId, @PathVariable boolean isComplete) {
+        siteRequestService.markCompleteOrUndo(siteReqId, isComplete);
     }
 }
