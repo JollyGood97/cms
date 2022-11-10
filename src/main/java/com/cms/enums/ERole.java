@@ -1,0 +1,11 @@
+package com.cms.enums;
+
+public enum ERole {
+    ROLE_SUPPLIER_MANAGER,
+    ROLE_HR_MANAGER,
+    ROLE_CONTRACT_MANAGER,
+    ROLE_SUPER_ADMIN,
+    ROLE_MACHINE_MANAGER,
+    ROLE_USER
+
+}

@@ -5,11 +5,13 @@ import com.cms.entity.Employee;
 import com.cms.service.EmployeeService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("employees")
 public class EmployeeController {
@@ -31,6 +33,7 @@ public class EmployeeController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('HR_MANAGER') or hasRole('SUPER_ADMIN')")
     public @ResponseBody List<EmployeeDTO> getAllEmployees() {
         List<Employee> employees = employeeService.getEmployees();
         return employees.stream().map(employee ->
