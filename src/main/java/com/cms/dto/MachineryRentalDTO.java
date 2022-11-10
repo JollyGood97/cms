@@ -5,6 +5,6 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper=true)
-public class machineryRentalDTO extends VendorDTO{
+public class MachineryRentalDTO extends VendorDTO{
     private String machineryRentalId;
 }

@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "machinery-suppliers")
+@Document(collection = "machinery-rentals")
 @Data
 @EqualsAndHashCode(callSuper=true)
 public class MachineryRental extends Vendor{

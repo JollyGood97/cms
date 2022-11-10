@@ -7,5 +7,4 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=true)
 public class MachineDTO extends ResourceDTO{
     private String machineId;
-    private String category;
 }

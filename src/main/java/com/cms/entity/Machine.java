@@ -9,5 +9,4 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @EqualsAndHashCode(callSuper=true)
 public class Machine extends Resource{
     private String machineId;
-    private String category;
 }

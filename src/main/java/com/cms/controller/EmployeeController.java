@@ -31,15 +31,15 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public @ResponseBody List<EmployeeDTO> getAllEmployees(){
+    public @ResponseBody List<EmployeeDTO> getAllEmployees() {
         List<Employee> employees = employeeService.getEmployees();
         return employees.stream().map(employee ->
-            mapper.map(employee, EmployeeDTO.class)
+                mapper.map(employee, EmployeeDTO.class)
         ).collect(Collectors.toList());
     }
 
     @GetMapping("/{employeeId}")
-    public @ResponseBody EmployeeDTO getEmployeeById(@PathVariable String employeeId){
+    public @ResponseBody EmployeeDTO getEmployeeById(@PathVariable String employeeId) {
         return mapper.map(employeeService.getEmployeeById(employeeId), EmployeeDTO.class);
     }
 
@@ -51,12 +51,12 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/{employeeId}")
-    public void deleteEmployee(@PathVariable String employeeId){
+    public void deleteEmployee(@PathVariable String employeeId) {
         employeeService.deleteEmployee(employeeId);
     }
 
     @GetMapping("/corps/{corpId}")
-    public @ResponseBody List<EmployeeDTO> getEmployeesByCompany(@PathVariable String corpId){
+    public @ResponseBody List<EmployeeDTO> getEmployeesByCompany(@PathVariable String corpId) {
         List<Employee> employees = employeeService.getEmployeesByCompany(corpId);
         return employees.stream().map(employee ->
                 mapper.map(employee, EmployeeDTO.class)

@@ -1,4 +1,10 @@
 package com.cms.repository;
 
-public interface MachineRepository {
+import com.cms.entity.Machine;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import java.util.List;
+
+public interface MachineRepository extends MongoRepository<Machine, String> {
+    List<Machine> findMachineByCompanyId(final String compId);
 }

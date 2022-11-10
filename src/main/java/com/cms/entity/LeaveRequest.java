@@ -1,6 +1,5 @@
 package com.cms.entity;
 
-import com.cms.enums.SiteRequestType;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,4 +15,5 @@ public class LeaveRequest {
     private String description;
     private Date date;
     private boolean approved = false;
+    private boolean done = false;
 }

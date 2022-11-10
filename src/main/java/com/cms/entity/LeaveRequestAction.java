@@ -10,10 +10,12 @@ public class LeaveRequestAction implements Request{
     @Override
     public void takeAction() {
         leaveRequest.setApproved(true);
+        leaveRequest.setDone(true);
     }
 
     @Override
     public void rejectAction() {
         leaveRequest.setApproved(false);
+        leaveRequest.setDone(true);
     }
 }

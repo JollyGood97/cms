@@ -10,4 +10,5 @@ public class ResourceDTO {
     private String name;
     private ResourceType type;
     private String companyId;
+
 }
