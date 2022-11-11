@@ -33,9 +33,11 @@ public class EmployeeController {
      * @return EmployeeDTO The newly created employeeDTO object
      */
     @PostMapping
+    @PreAuthorize("hasRole('HR_MANAGER') or hasRole('SUPER_ADMIN')")
     public @ResponseBody EmployeeDTO createEmployee(@RequestBody EmployeeDTO employeeDTO) {
         Employee employee = mapper.map(employeeDTO, Employee.class);
         return mapper.map(employeeService.createEmployee(employee), EmployeeDTO.class);
+
     }
 
     /**
@@ -59,6 +61,7 @@ public class EmployeeController {
      * @return EmployeeDTO The found employeeDTO object
      */
     @GetMapping("/{employeeId}")
+    @PreAuthorize("hasRole('HR_MANAGER') or hasRole('SUPER_ADMIN')")
     public @ResponseBody EmployeeDTO getEmployeeById(@PathVariable String employeeId) {
         return mapper.map(employeeService.getEmployeeById(employeeId), EmployeeDTO.class);
     }
@@ -70,6 +73,7 @@ public class EmployeeController {
      * @return EmployeeDTO The edited employeeDTO object
      */
     @PutMapping("/{employeeId}")
+    @PreAuthorize("hasRole('HR_MANAGER') or hasRole('SUPER_ADMIN')")
     public @ResponseBody EmployeeDTO updateEmployee(@RequestBody EmployeeDTO employeeDTO, @PathVariable String employeeId) {
         Employee employee = mapper.map(employeeDTO, Employee.class);
         return mapper.map(employeeService.updateEmployee(employeeId, employee), EmployeeDTO.class);
@@ -82,6 +86,7 @@ public class EmployeeController {
      * @param employeeId The id of the employee to be deleted
      */
     @DeleteMapping("/{employeeId}")
+    @PreAuthorize("hasRole('HR_MANAGER') or hasRole('SUPER_ADMIN')")
     public void deleteEmployee(@PathVariable String employeeId) {
         employeeService.deleteEmployee(employeeId);
     }
@@ -92,11 +97,11 @@ public class EmployeeController {
      * @param corpId The id of the Engineering Cooperation.
      */
     @GetMapping("/corps/{corpId}")
+    @PreAuthorize("hasRole('HR_MANAGER') or hasRole('SUPER_ADMIN')")
     public @ResponseBody List<EmployeeDTO> getEmployeesByCompany(@PathVariable String corpId) {
         List<Employee> employees = employeeService.getEmployeesByCompany(corpId);
         return employees.stream().map(employee ->
                 mapper.map(employee, EmployeeDTO.class)
         ).collect(Collectors.toList());
     }
-
 }
