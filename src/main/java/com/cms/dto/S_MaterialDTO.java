@@ -1,9 +1,6 @@
 package com.cms.dto;
 
-import com.cms.entity.S_SupplyModel;
+import com.cms.entity.S_SuppliesTypeModel;
 
-public class S_MaterialDTO extends S_SupplyModel{
-
-    private boolean isRented;
-
+public class S_MaterialDTO extends S_SuppliesTypeModel {
 }

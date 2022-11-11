@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document(collection = "s_equipment")
-public class S_EquipmentModel extends S_SupplyModel {
+public class S_EquipmentModel extends S_SuppliesTypeModel {
     private boolean isRented;
 
     public boolean isRented() {

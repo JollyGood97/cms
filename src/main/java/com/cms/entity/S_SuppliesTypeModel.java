@@ -4,7 +4,7 @@ package com.cms.entity;
 import java.util.Date;
 
 
-public class S_SupplyModel {
+public class S_SuppliesTypeModel {
     private int supply_id;
     private String supply_name;
     private String supply_brand;

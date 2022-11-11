@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document(collection = "s_material")
-public class S_MaterialModel extends S_SupplyModel {
+public class S_MaterialModel extends S_SuppliesTypeModel {
 
 }
