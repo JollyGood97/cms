@@ -39,6 +39,11 @@ public class MachineRentalService {
         ));
     }
 
+    /**
+     * Delete a Machinery Rental
+     * Also deletes any machines attached to the machinery rental
+     * @param id String id of machinery rental to be deleted
+     */
     public void deleteMachineryRental(String id) {
         Optional<MachineryRental> existingRental = machineryRentalRepository.findById(id);
         if (existingRental.isPresent()) {

@@ -34,6 +34,11 @@ public class LeaveRequestService {
         ));
     }
 
+    /**
+     * Approve or decline leave requests.
+     * Uses Bridge Pattern
+     * @param approve Boolean
+     */
     public void approveOrDecline(@NonNull String id, boolean approve) {
         LeaveRequest leaveRequest = getLeaveReqById(id);
         Request leaveReq = new LeaveRequestAction(leaveRequest);

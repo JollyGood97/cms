@@ -39,6 +39,11 @@ public class LeaveRequestController {
         ).collect(Collectors.toList());
     }
 
+    /**
+     * Approve or decline leave requests.
+     *
+     * @param isApproved Boolean
+     */
     @PutMapping("/{leaveReqId}/{isApproved}")
     public void approveOrDecline(@PathVariable String leaveReqId, @PathVariable boolean isApproved) {
         leaveRequestService.approveOrDecline(leaveReqId, isApproved);
