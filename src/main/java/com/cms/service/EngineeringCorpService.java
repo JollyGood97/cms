@@ -40,6 +40,11 @@ public class EngineeringCorpService {
         ));
     }
 
+    /**
+     * Deletes an Engineering Corporation
+     * Also deletes any employees attached to the engineering cooperation
+     * @param id String id of engineering cooperation to be deleted
+     */
     public void deleteCorp(String id){
         Optional<EngineeringCorp> existingCorp = engineeringCorpRepository.findById(id);
         if (existingCorp.isPresent()) {
