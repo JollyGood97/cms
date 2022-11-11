@@ -9,10 +9,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 //import static org.springframework.security.config.Customizer.withDefaults;
 
-@Configuration
-public class SecurityConfig implements WebMvcConfigurer {
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**");
-    }
-}
+//@Configuration
+//public class SecurityConfig implements WebMvcConfigurer {
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/**")
+//                .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS");
+//    }
+//}
