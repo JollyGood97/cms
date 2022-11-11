@@ -55,6 +55,12 @@ public class MachineController {
         machineService.deleteMachine(machineId);
     }
 
+    /**
+     * Get machines attached to machinery rental.
+     *
+     * @param rentalId The id of the machinery rental
+     * @return MachineDTO List of returned
+     */
     @GetMapping("/rentals/{rentalId}")
     public @ResponseBody List<MachineDTO> getMachinesByCompany(@PathVariable String rentalId) {
         List<Machine> machines = machineService.getMachinesByCompany(rentalId);
