@@ -33,6 +33,7 @@ public class MachineController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ROLE_MACHINE_MANAGER') or hasRole('SUPER_ADMIN')")
     public @ResponseBody List<MachineDTO> getAllMachines() {
         List<Machine> machines = machineService.getMachines();
         return machines.stream().map(machine ->
@@ -41,11 +42,14 @@ public class MachineController {
     }
 
     @GetMapping("/{machineId}")
+    @PreAuthorize("hasRole('ROLE_MACHINE_MANAGER') or hasRole('SUPER_ADMIN')")
+
     public @ResponseBody MachineDTO getMachineById(@PathVariable String machineId) {
         return mapper.map(machineService.getMachineById(machineId), MachineDTO.class);
     }
 
     @PutMapping("/{machineId}")
+    @PreAuthorize("hasRole('ROLE_MACHINE_MANAGER') or hasRole('SUPER_ADMIN')")
     public @ResponseBody MachineDTO updateMachine(@RequestBody MachineDTO machineDTO, @PathVariable String machineId) {
         Machine machine = mapper.map(machineDTO, Machine.class);
         return mapper.map(machineService.updateMachine(machineId, machine), MachineDTO.class);
@@ -53,6 +57,7 @@ public class MachineController {
     }
 
     @DeleteMapping("/{machineId}")
+    @PreAuthorize("hasRole('ROLE_MACHINE_MANAGER') or hasRole('SUPER_ADMIN')")
     public void deleteMachine(@PathVariable String machineId) {
         machineService.deleteMachine(machineId);
     }
@@ -64,6 +69,7 @@ public class MachineController {
      * @return MachineDTO List of returned
      */
     @GetMapping("/rentals/{rentalId}")
+    @PreAuthorize("hasRole('ROLE_MACHINE_MANAGER') or hasRole('SUPER_ADMIN')")
     public @ResponseBody List<MachineDTO> getMachinesByCompany(@PathVariable String rentalId) {
         List<Machine> machines = machineService.getMachinesByCompany(rentalId);
         return machines.stream().map(machine ->
