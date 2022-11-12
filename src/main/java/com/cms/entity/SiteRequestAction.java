@@ -1,6 +1,6 @@
 package com.cms.entity;
 
-public class SiteRequestAction implements Request {
+public class SiteRequestAction implements RequestAction {
     SiteRequest siteRequest;
 
     public SiteRequestAction(SiteRequest siteRequest) {
@@ -8,12 +8,12 @@ public class SiteRequestAction implements Request {
     }
 
     @Override
-    public void takeAction() {
+    public void action() {
         siteRequest.setComplete(true);
     }
 
     @Override
-    public void rejectAction() {
+    public void reject() {
         siteRequest.setComplete(false);
     }
 }

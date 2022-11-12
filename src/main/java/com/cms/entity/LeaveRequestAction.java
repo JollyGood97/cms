@@ -1,6 +1,6 @@
 package com.cms.entity;
 
-public class LeaveRequestAction implements Request{
+public class LeaveRequestAction implements RequestAction {
     LeaveRequest leaveRequest;
 
     public LeaveRequestAction(LeaveRequest leaveRequest){
@@ -8,13 +8,13 @@ public class LeaveRequestAction implements Request{
     }
 
     @Override
-    public void takeAction() {
+    public void action() {
         leaveRequest.setApproved(true);
         leaveRequest.setDone(true);
     }
 
     @Override
-    public void rejectAction() {
+    public void reject() {
         leaveRequest.setApproved(false);
         leaveRequest.setDone(true);
     }
