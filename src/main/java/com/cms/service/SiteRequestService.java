@@ -36,11 +36,11 @@ public class SiteRequestService {
 
     public void markCompleteOrUndo(@NonNull String id, boolean isComplete) {
         SiteRequest siteRequest = getSiteReqById(id);
-        Request siteReq = new SiteRequestAction(siteRequest);
+        RequestAction siteReq = new SiteRequestAction(siteRequest);
         if (isComplete) {
-            new RequestAction(siteReq).action();
+            new RequestImpl(siteReq).takeAction();
         } else {
-            new RequestAction(siteReq).reject();
+            new RequestImpl(siteReq).rejectAction();
         }
         siteRequestRepository.save(siteRequest);
     }

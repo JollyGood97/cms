@@ -41,11 +41,11 @@ public class LeaveRequestService {
      */
     public void approveOrDecline(@NonNull String id, boolean approve) {
         LeaveRequest leaveRequest = getLeaveReqById(id);
-        Request leaveReq = new LeaveRequestAction(leaveRequest);
+        RequestAction leaveReq = new LeaveRequestAction(leaveRequest);
         if (approve) {
-            new RequestAction(leaveReq).action();
+            new RequestImpl(leaveReq).takeAction();
         } else {
-            new RequestAction(leaveReq).reject();
+            new RequestImpl(leaveReq).rejectAction();
         }
         leaveRequestRepository.save(leaveRequest);
     }
